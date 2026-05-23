@@ -10,7 +10,18 @@
   <h3><a href="../index.html">NoNew887</a> > <a href="os-creation.html">OS creation</a> > <a href="bootloader.html">Bootloader</a></h3>
   <h1>NoNew887 Page about making a bootloader.</h1>
   <p>This page is about making an x86 bootloader with Assembly language.</p>
-  <br><br>
+  <br>
+  <p>Before making a bootloader, we should know what does "bootloader" do. So, when you power on your PC, it starts in Real Mode (16-bit) and can only access 64 KB of RAM, even if you have more. The bootloader transitions from this state into an enviroment ready for the kernel.</p>
+  
+  <p>This is an example of a simple x86 Assembly bootloader:</p>
+  <pre><code>
+    jmp $
+
+    times 510-($-$$) db 0
+    db 0x55, 0xaa
+  </code></pre>
+  <p>To turn this assembly code into a bootable disk image, you can use NASM (Netwide Assembler) and run it inside an emulator like QEMU.</p>
+  
   <p>Bla-bla-bla... The writer is lazy and took a break. The page is not ready yet.</p>
 </body>
 </html>
