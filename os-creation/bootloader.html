@@ -3,6 +3,7 @@
 <html>
 <head>
   <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../style.css">
   <title>[NN887] Bootloader</title>
 </head>
@@ -20,6 +21,14 @@
     times 510-($-$$) db 0
     db 0x55, 0xaa
   </code></pre>
-  <p>To turn this assembly code into a bootable disk image, you can use NASM (Netwide Assembler) and run it inside an emulator like QEMU.</p>
+  <p>To try this code, you need to save it in an ASM file, compile it using NASM (Netwide Assembler) and run it in QEMU. These programs support Windows and Linux.</p>
+  <p>If you named your ASM file "boot.asm", open a command line program (terminal), go to the folder where your file is and type this command:</p>
+  <pre><code>
+    nasm -f bin boot.asm -o boot.bin
+  </code></pre>
+  <p>Now you have "boot.bin" file in the same folder. Let's run it in QEMU with this command:</p>
+  <pre><code>
+    qemu-system-x86_64 -drive format=raw,file=boot.bin
+  </code></pre>
 </body>
 </html>
