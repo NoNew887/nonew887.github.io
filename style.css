@@ -11,3 +11,6 @@ a {
   color: black;
   font-family: arial;
 }
+a:link {
+  color: dodgerBlue;
+}
